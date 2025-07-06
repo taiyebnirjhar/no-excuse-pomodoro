@@ -1,0 +1,20 @@
+{
+  "appId": "com.taiyeb.boilerplate",
+  "productName": "Electron React Boilerplate",
+  "copyright": "Copyright © 2025 Taiyeb",
+  "files": ["dist-electron", "dist-react"],
+
+  "mac": {
+    "target": "dmg",
+    "icon": "public/icon.icns"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": "Utility",
+    "icon": "public/icon.png"
+  },
+  "win": {
+    "target": ["portable", "msi"],
+    "icon": "public/icon.ico"
+  }
+}
