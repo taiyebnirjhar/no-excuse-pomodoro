@@ -36,7 +36,7 @@ export function TimerTypeSelector({
       {timerTypes.map((timerType) => {
         const Icon = timerIcons[timerType];
         const isActive = currentTimer === timerType;
-        console.log(timerConfigs[timerType].label);
+        // console.log(timerConfigs[timerType].label);
 
         return (
           <div

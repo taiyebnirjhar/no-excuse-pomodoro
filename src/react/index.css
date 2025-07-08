@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@plugin 'tailwind-scrollbar';
+@plugin "tailwind-scrollbar";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -234,7 +234,7 @@ body {
   }
 
   .custom-scrollbar {
-    @apply overflow-y-auto scrollbar-thin scrollbar-thumb-purple-700 scrollbar-track-blue-200;
+    @apply overflow-y-auto scrollbar-thin scrollbar-thumb-purple-900 scrollbar-track-purple-800;
     overflow: auto; /* or overflow-y-scroll for vertical */
   }
 }

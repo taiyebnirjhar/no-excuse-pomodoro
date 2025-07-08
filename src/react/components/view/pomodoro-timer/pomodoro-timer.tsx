@@ -13,17 +13,17 @@ import { Alert, AlertDescription, Card, CardContent } from "../../ui";
 
 export default function PomodoroTimer() {
   const { state, actions, showMessage } = usePomodoroTimer();
-  console.log(state.currentTimer);
+  // console.log(state.currentTimer);
 
   return (
-    <div className="h-screen relative custom-scrollbar  transition-all duration-500 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900">
+    <div className="h-screen w-full overflow-hidden relative  transition-all duration-500 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 ">
       {/* Theme Toggle */}
       <ThemeToggle />
 
       {/* Background Effects */}
       <BackgroundEffects />
 
-      <div className="relative z-10 container mx-auto max-w-7xl px-4 py-4 h-full flex flex-col space-y-10">
+      <div className="relative z-10 container mx-auto w-full px-4 py-4 h-full flex flex-col space-y-10 overflow-y-auto custom-scrollbar">
         {/* Compact Header */}
         <div className="text-left ">
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-100 dark:to-purple-100 bg-clip-text text-transparent">
