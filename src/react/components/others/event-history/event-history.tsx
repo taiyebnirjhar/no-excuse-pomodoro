@@ -73,7 +73,6 @@ export function EventHistory({ events, currentEvent }: EventHistoryProps) {
       <Card className="glass-card glow-effect h-full">
         <CardHeader className="pb-2">
           <CardTitle className="text-lg text-gray-800 dark:text-white flex items-center gap-2">
-            <Clock className="w-4 h-4 text-blue-500 dark:text-blue-400" />
             Recent Activity
           </CardTitle>
         </CardHeader>
