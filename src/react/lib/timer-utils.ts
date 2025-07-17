@@ -6,11 +6,19 @@ export function formatTime(ms: number): string {
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-export function playAlarmSound() {
-  const alarm = new Audio(
-    "https://www.freespecialeffects.co.uk/soundfx/scifi/electronic.wav"
-  );
-  alarm.play().catch(console.error);
+export function playAlarmSound(timerType: TimerType) {
+  let soundSrc = "/sounds/bete_mauj_kardi.mp3"; // default for pomodoro
+
+  if (timerType === "short") {
+    soundSrc = "/sounds/araara.mp3";
+  } else if (timerType === "long") {
+    soundSrc = "/sounds/mone_valo_hoye_gache.mp3";
+  }
+
+  const alarm = new Audio(soundSrc);
+  alarm.play().catch((err) => {
+    console.error("Audio play failed:", err);
+  });
 }
 
 export function showNotification(title: string, body: string) {
@@ -37,3 +45,14 @@ export function getNextTimer(
 
   return "pomodoro";
 }
+
+//* ----> TEST
+// export function getNextTimer(
+//   currentTimer: TimerType,
+//   loopStart: number | null,
+//   pomodoroCount: number
+// ): TimerType | null {
+//   if (currentTimer === "pomodoro") return "short";
+//   if (currentTimer === "short") return "long";
+//   return null; // stop after long
+// }

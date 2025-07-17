@@ -55,6 +55,13 @@ export function useTimerEngine({
     );
     setIsRunning(true);
 
+    if (Notification.permission === "granted") {
+      showNotification(
+        "Timer Started",
+        `${timerConfigs[currentTimerRef.current].label} started`
+      );
+    }
+
     intervalRef.current = setInterval(() => {
       const now = Date.now();
       const remaining = endTimestamp - now;
@@ -68,7 +75,8 @@ export function useTimerEngine({
         setTimeLeft("00:00");
         setProgress(100);
         completeEvent();
-        playAlarmSound();
+        playAlarmSound(currentTimerRef.current);
+
         showNotification(
           "Timer Finished",
           `${timerConfigs[currentTimerRef.current].label} completed`
