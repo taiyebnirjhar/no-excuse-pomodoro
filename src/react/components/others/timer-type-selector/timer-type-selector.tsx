@@ -1,6 +1,6 @@
 "use client";
 import { Brain, Coffee, Pause } from "lucide-react";
-import { timerConfigs } from "../../../lib/timer-config";
+import { timerConfigs } from "../../../config/timer-config";
 import type { TimerType } from "../../../types/timer";
 import { Badge, Button } from "../../ui";
 

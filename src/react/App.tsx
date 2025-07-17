@@ -1,4 +1,4 @@
-import PomodoroTimer from "./components/view/pomodoro-timer/pomodoro-timer";
+import PomodoroTimer from "./components/others/pomodoro-timer/pomodoro-timer";
 import { ThemeProvider } from "./contexts/theme-context";
 import "./index.css";
 

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { CheckCircle, Clock, PlayCircle, RotateCcw } from "lucide-react";
-import { timerConfigs } from "../../../lib/timer-config";
+import { timerConfigs } from "../../../config/timer-config";
 import type { TimerEvent } from "../../../types/timer";
 import { LoadingSkeleton } from "../../shared/skeleton/loading-skeleton";
 import { Badge, Card, CardContent, CardHeader, CardTitle } from "../../ui";
@@ -13,6 +13,8 @@ interface EventHistoryProps {
 
 export function EventHistory({ events, currentEvent }: EventHistoryProps) {
   const recentEvents = events.slice(-5).reverse(); // Show fewer events
+
+  console.log(events);
 
   const formatTime = (timestamp: number) => {
     return new Date(timestamp).toLocaleTimeString([], {
@@ -72,10 +74,10 @@ export function EventHistory({ events, currentEvent }: EventHistoryProps) {
         <CardHeader className="pb-2">
           <CardTitle className="text-lg text-gray-800 dark:text-white flex items-center gap-2">
             <Clock className="w-4 h-4 text-blue-500 dark:text-blue-400" />
-            History
+            Recent Activity
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2">
+        <CardContent className="space-y-2 w-full h-[90%] flex justify-center items-center">
           <div className="text-center py-4 text-gray-500 dark:text-gray-400">
             <Clock className="w-8 h-8 mx-auto mb-2 opacity-50" />
             <p className="text-sm font-medium mb-1">No sessions yet</p>
@@ -90,7 +92,7 @@ export function EventHistory({ events, currentEvent }: EventHistoryProps) {
     <Card className="glass-card glow-effect h-full">
       <CardHeader className="pb-3">
         <CardTitle className="text-lg text-gray-800 dark:text-white flex items-center gap-2">
-          History
+          Recent Activity
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">

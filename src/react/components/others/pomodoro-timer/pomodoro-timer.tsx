@@ -1,19 +1,17 @@
 "use client";
-import { AlertTriangle } from "lucide-react";
-import { usePomodoroTimer } from "../../../hooks/use-pomodoro-timer";
-import { EventHistory } from "../../others/event-history/event-history";
-import { PremiumStats } from "../../others/premium-stats/premium-stats";
-import { TimerControls } from "../../others/timer-controls/timer-controls";
-import { TimerDisplay } from "../../others/timer-display/timer-display";
-import { TimerTypeSelector } from "../../others/timer-type-selector/timer-type-selector";
+import { usePomodoroTimer } from "../../../hooks/pomodoro-timer/use-pomodoro-timer";
 import BackgroundEffects from "../../shared/background-effects/background-effects";
 import Footer from "../../shared/footer/footer";
 import { ThemeToggle } from "../../shared/theme-toggle/theme-toggle";
-import { Alert, AlertDescription, Card, CardContent } from "../../ui";
+import { Card, CardContent } from "../../ui";
+import { EventHistory } from "../event-history/event-history";
+import { PremiumStats } from "../premium-stats/premium-stats";
+import { TimerControls } from "../timer-controls/timer-controls";
+import { TimerDisplay } from "../timer-display/timer-display";
+import { TimerTypeSelector } from "../timer-type-selector/timer-type-selector";
 
 export default function PomodoroTimer() {
-  const { state, actions, showMessage } = usePomodoroTimer();
-  // console.log(state.currentTimer);
+  const { state, actions } = usePomodoroTimer();
 
   return (
     <div className="h-screen w-full overflow-hidden relative  transition-all duration-500 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 ">
@@ -33,21 +31,8 @@ export default function PomodoroTimer() {
 
         {/* Compact Stats */}
         <div className="">
-          <PremiumStats
-            events={state.events}
-            currentEvent={state.currentEvent}
-          />
+          <PremiumStats events={state.events} />
         </div>
-
-        {/* Error Message */}
-        {showMessage && (
-          <Alert className="max-w-md mx-auto glass-card border-red-500/50 bg-red-500/10">
-            <AlertTriangle className="h-4 w-4 text-red-500 dark:text-red-400" />
-            <AlertDescription className="text-red-700 dark:text-red-300 font-medium">
-              Please select a timer type before starting your focus session.
-            </AlertDescription>
-          </Alert>
-        )}
 
         {/* Main Content Grid - Flex grow to fill remaining space */}
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 flex-1 min-h-0">
