@@ -9,22 +9,32 @@ interface PremiumStatsProps {
 }
 
 export function PremiumStats({ events }: PremiumStatsProps) {
-  const today = new Date().toDateString();
-
   const stats = useMemo(() => {
     const completedSessions = events.filter(
       (e) => e.status === "completed"
     ).length;
+
     const completedPomodoros = events.filter(
       (e) => e.event === "pomodoro" && e.status === "completed"
     ).length;
+
     const totalMinutes = events
       .filter((e) => e.status === "completed")
       .reduce((acc, e) => acc + e.duration, 0);
+
+    const now = new Date();
+    const startOfToday = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    ).getTime();
+    const startOfTomorrow = startOfToday + 24 * 60 * 60 * 1000;
+
     const todaysSessions = events.filter(
       (e) =>
-        new Date(e.startTime).toDateString() === today &&
-        e.status === "completed"
+        e.status === "completed" &&
+        e.startTime >= startOfToday &&
+        e.startTime < startOfTomorrow
     ).length;
 
     return [
@@ -57,7 +67,7 @@ export function PremiumStats({ events }: PremiumStatsProps) {
         bgColor: "bg-purple-500/10 dark:bg-purple-400/10",
       },
     ];
-  }, [events, today]);
+  }, [events]);
 
   return (
     <div className="grid grid-cols-4 gap-6">
