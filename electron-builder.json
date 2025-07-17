@@ -1,7 +1,7 @@
 {
-  "appId": "com.taiyeb.boilerplate",
-  "productName": "Electron React Boilerplate",
-  "copyright": "Copyright © 2025 Taiyeb",
+  "appId": "com.taiyeb.no-excuse-pomodoro",
+  "productName": "No Excuse Pomodoro",
+  "copyright": "Copyright © 2025",
   "files": ["dist-electron", "dist-react"],
 
   "mac": {
