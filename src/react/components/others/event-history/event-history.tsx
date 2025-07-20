@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { CheckCircle, Clock, PlayCircle, RotateCcw } from "lucide-react";
 import { timerConfigs } from "../../../config/timer-config";
@@ -115,7 +114,7 @@ export function EventHistory({ events, currentEvent }: EventHistoryProps) {
 
         <div className="space-y-3 max-h-full overflow-y-auto custom-scrollbar">
           {recentEvents.length > 0 ? (
-            recentEvents.map((event, index) => (
+            recentEvents.map((event) => (
               <div
                 key={event.id}
                 className="group p-2 rounded-lg bg-white/10 dark:bg-white/5 hover:bg-white/20 dark:hover:bg-white/10 border border-gray-200/30 dark:border-white/10 hover:border-gray-200/50 dark:hover:border-white/20 transition-all duration-300"
